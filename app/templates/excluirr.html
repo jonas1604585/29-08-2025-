@@ -1,0 +1,25 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Excluir Acessório</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'admin/css/style.css' %}"> 
+</head>
+<body class="bg-light d-flex justify-content-center align-items-center vh-100">
+
+    <div class="card p-4 shadow" style="width: 100%; max-width: 400px;">
+        <h2 class="text-center text-danger mb-4">Excluir Acessório</h2>
+        <p class="text-center">Tem certeza que deseja excluir o acessório <strong>{{ acessorio.nome }}</strong>?</p>
+        <form method="POST">
+            {% csrf_token %}
+            <div class="d-grid gap-2">
+                <button type="submit" class="btn btn-danger">Sim, excluir</button>
+                <a href="{% url 'listarr' acessorio.item.id %}" class="btn btn-secondary">Cancelar</a>
+            </div>
+        </form>
+    </div>
+
+</body>
+</html>
